@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Start page
+{% endblock %}
+
+
+{% block head %}
+  <link rel="stylesheet" href="/static/css/style.css" media="screen" title="no title" charset="utf-8" />
+{% endblock %}
+
+{% block header %}
+  <div class="row">
+    <div class="text-center">
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block body %}
+  <div class="row">
+
+    <div class="text-center">
+      <br />
+      {% with messages = dict(get_flashed_messages(with_categories=True)) or {} %}
+        {% if messages %}
+          {% if messages.get('success') %}
+            <div>{{ messages['success'] }}</div>
+            <br />
+            <div class="fancy">
+              ヽ( ⌒ω⌒)人(=^‥^= )ﾉ
+            </div>
+          {% elif messages.get('error') %}
+            <div class="">
+              {{ messages['error'] }}
+            </div>
+            <br />
+            <div class="wrong">
+              (←_←)
+            </div>
+          {% else %}
+            <div class="">
+              What's goin' on?!
+            </div>
+            <br />
+            <div class="wrong">
+              Σ(°ロ°)
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="">
+            Seems like you've already submitted your credentials
+          </div>
+          <br />
+          <div class="fancy">
+            ┬┴┬┴┤･ω･)ﾉ
+          </div>
+          <br />
+          <div class="">
+            <a class="btn btn-primary" href="/logout">Submit</a> another pair!
+          </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+{% endblock %}
