@@ -4,6 +4,9 @@
 # Environment directory
 env/
 
+# PyCharm local configuration directory
+.idea/
+
 # Log files
 *.log
 
